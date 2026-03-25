@@ -206,5 +206,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-/data/
 **/.ipynb_checkpoints/
+data/raw/
+data/cleaned/
