@@ -1,4 +1,4 @@
-# Ames Housing
+## **Ames Housing**
 
 This project analyzes the Ames Housing dataset through a complete data workflow.  
 It includes data cleaning, feature engineering, exploratory data analysis (EDA), and basic statistical analysis (math).  
