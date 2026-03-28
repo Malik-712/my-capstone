@@ -84,7 +84,7 @@ The probability analysis showed that houses with `Overall Qual` of 7 or higher h
 The correlation analysis also supported this result. `Overall Qual` had the strongest correlation with `SalePrice` at 0.83, followed by `avg_room_size` at 0.71 and `Gr Liv Area` at 0.69.
 
 ---
-![Correlation Heatmap](figures\correlation_heatmap.png)
+![Correlation Heatmap](figures/correlation_heatmap.png)
 
 ---
 
