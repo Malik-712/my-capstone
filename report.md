@@ -10,6 +10,8 @@ The main goal of this project is to explore the factors that influence `SalePric
 
 To answer these questions, the project uses data cleaning, exploratory analysis, and feature engineering. A log transformation was also applied to `SalePrice` to reduce skewness and make the distribution easier to analyze.
 
+> **Repository:** [github.com/Malik-712/my-capstone](https://github.com/Malik-712/my-capstone)
+
 ---
 
 # Cleaning Summary
