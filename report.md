@@ -89,7 +89,7 @@ The correlation analysis also supported this result. `Overall Qual` had the stro
 
 ---
 
-![Correlation Heatmap](figures/correlation_heatmap.png)
+![Correlation Heatmap](figures/eda/correlation_heatmap.png)
 
 ---
 
