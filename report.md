@@ -1,6 +1,6 @@
 # Introduction
 
-This project analyzes the Ames Housing dataset, which contains 2,930 house sales in Ames, Iowa, and more than 80 features describing each property. These features include information about size, quality, condition, and sale price, making the dataset useful for understanding what affects house prices.
+This project analyzes the Ames Housing dataset, which contains 2,930 house sales in Ames, Iowa, and a large set of features describing each property. These features include information about size, quality, condition, and sale price, making the dataset useful for understanding what affects house prices.
 
 The main goal of this project is to explore the factors that influence `SalePrice` and identify the most important patterns in the data. The analysis focuses on questions such as:
 
@@ -8,9 +8,11 @@ The main goal of this project is to explore the factors that influence `SalePric
 - How do quality and living area affect price?
 - What clear patterns can be found in the dataset?
 
-To answer these questions, the project uses data cleaning, exploratory analysis, and feature engineering. A log transformation was also applied to `SalePrice` to reduce skewness and make the distribution easier to analyze.
+To answer these questions, the project uses data cleaning, exploratory analysis, and feature engineering. A log transformation was applied to `SalePrice` to reduce skewness and improve the distribution for analysis.
 
-> **Repository:** [github.com/Malik-712/my-capstone](https://github.com/Malik-712/my-capstone)
+The final dataset was prepared for further analysis and modeling.
+
+> **Repository:** [github.com/Malik-712/my-capstone](https://github.com/malik-712/my-capstone)
 
 ---
 
@@ -32,7 +34,7 @@ Different strategies were used depending on the column:
 No duplicate rows were found.
 
 **Outliers:**  
-Outliers in `SalePrice` were identified using the IQR method. Instead of removing them, the extreme values were capped at the 99th percentile so the data could stay complete while reducing the effect of very large prices.
+Outliers in `SalePrice` were examined using the IQR method, and extreme values were capped at the 99th percentile to reduce their influence while keeping the data complete.
 
 A reusable `clean_data()` function was created to apply all cleaning steps in a consistent way. Validation checks confirmed that:
 
@@ -47,13 +49,13 @@ A reusable `clean_data()` function was created to apply all cleaning steps in a 
 After cleaning, several new features and transformations were added to make the dataset more useful for analysis.
 
 **One-hot encoding:**  
-`Land Slope` and `Garage Finish` were converted into binary columns using `pd.get_dummies()`.
+Categorical variables such as `Land Slope` and `Garage Finish` were encoded into dummy variables using `pd.get_dummies()`.
 
 **Ordinal encoding:**  
 `Kitchen Qual` was encoded as an ordered variable from 1 to 5, from Poor to Excellent.
 
 **Scaling:**  
-`Lot Area` and `Gr Liv Area` were standardized using `StandardScaler` so they would be on the same scale.
+`Lot Area` and `Gr Liv Area` were standardized using `StandardScaler` to make them easier to compare across features.
 
 **Domain features:**  
 Two useful ratio features were created:
@@ -65,7 +67,7 @@ Two useful ratio features were created:
 `qual_area_int` was created by multiplying `Overall Qual` by `Gr Liv Area`. This captures the combined effect of size and quality.
 
 **Log transformation:**  
-`SalePrice` was transformed using `np.log1p()` to reduce skewness and make the distribution more balanced.
+A log transformation was applied to `SalePrice` using `np.log1p()` to reduce skewness during analysis.
 
 **Binning:**  
 `Year Built` was grouped into three categories: `Old`, `Recent`, and `New`. This makes it easier to compare homes from different construction periods.
@@ -78,9 +80,9 @@ Two useful ratio features were created:
 Some columns had very high missing values, such as `Alley`, `Pool QC`, and `Misc Feature`. These were not errors. They mostly mean that the feature does not exist for many houses. Keeping them as `"Missing"` preserved useful information.
 
 **2. Quality and size together are important**  
-The interaction feature `qual_area_int` shows that house value depends on both quality and living area. A large house with poor quality and a smaller house with excellent quality can have similar prices, so the combination of both features matters more than either one alone.
+The interaction feature `qual_area_int` shows that house value depends on both quality and living area. House value is influenced by both size and quality, and the combination can matter more than either feature alone.
 
-**3. High-quality homes are much more likely to have above-average prices**  
+**3. Higher-quality homes were more likely to have above-average prices**  
 The probability analysis showed that houses with `Overall Qual` of 7 or higher had a 90.09% chance of being above the mean `SalePrice`. This makes overall quality one of the strongest indicators of house value.
 
 The correlation analysis also supported this result. `Overall Qual` had the strongest correlation with `SalePrice` at 0.83, followed by `avg_room_size` at 0.71 and `Gr Liv Area` at 0.69.
